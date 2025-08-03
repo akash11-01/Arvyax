@@ -1,5 +1,7 @@
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "";
+
 export const registerUser = async (formData) => {
-  const res = await fetch("/api/auth/register", {
+  const res = await fetch(`${API_BASE}/api/auth/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData),
@@ -11,7 +13,7 @@ export const registerUser = async (formData) => {
 };
 
 export const loginUser = async (formData) => {
-  const res = await fetch("/api/auth/login", {
+  const res = await fetch(`${API_BASE}/api/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData),

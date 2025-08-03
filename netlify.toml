@@ -1,3 +1,7 @@
+[build]
+  functions = "Backend/netlify/functions"
+  publish = "Frontend/dist"
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/app/:splat"

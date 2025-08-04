@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "";
 const Dashboard = () => {
   const [sessions, setSessions] = useState([]);
   const [error, setError] = useState("");
@@ -7,10 +7,11 @@ const Dashboard = () => {
   useEffect(() => {
     const getSessions = async () => {
       try {
-        const res = await fetch("/api/sessions");
+        const res = await fetch(`${API_BASE}/api/sessions`);
         const data = await res.json();
         if (!res.ok) throw new Error(data.message);
         setSessions(data);
+        setError("");
       } catch (err) {
         setError(err.message);
       }

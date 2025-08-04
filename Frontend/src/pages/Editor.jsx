@@ -42,6 +42,8 @@ const Editor = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       saveDraft(true);
+      setError("");
+      setMessage("Draft auto-saved!");
     }, 5000);
   };
 
